@@ -1,3 +1,4 @@
 class Order < ActiveRecord::Base
-  # Remember to create a migration!
+  # figure out if several cats per order will work
 end
+
