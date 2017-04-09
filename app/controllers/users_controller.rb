@@ -10,10 +10,10 @@ end
 # create new user
 post '/users' do
   @user = User.new(params[:user])
-  @user.password = params[:user][:hashed_password]
+  @user.password = params[:user][:password]
 
   if @user.save
-    redirect '/users/#{@user.id}'
+    redirect "/users/#{@user.id}"
     erb :'/users/show'
   else
     redirect '/users/new'
