@@ -23,7 +23,7 @@ end
 
 # display user profile
 get '/users/:id' do
-  @user = User.find(params[:id])
-  @orders = Order.find_by(params[:user_id])
+  @user = current_user
+  @user_orders = @user.orders
   erb :'/users/show'
 end

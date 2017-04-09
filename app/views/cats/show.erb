@@ -1,1 +1,24 @@
-Cat profile
+<h1>Cat profile</h1>
+
+<p><label>Name: </label><%= @cat.name %></p>
+<p><label>Breed: </label><%= @cat.breed %></p>
+<p><label>Age: </label><%= @cat.age %></p>
+
+<% if logged_in? %>
+  <% if current_user.cats.include?(@cat) %>
+    <form action="/orders/<%= @order.id%>" method="POST">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Return cat">
+  <% else %>
+    <form action="/orders" method="POST">
+    <input type="hidden" name="order[user_id]" value="<%= current_user.id %>">
+    <input type="hidden" name="order[cat_id]" value="<%= @cat.id %>">
+    <input type="submit" value="Rent this cat">
+    </form>
+  <% end %>
+<% else %>
+  <a href="/sessions/new">Log in to rent</a><br>
+<% end %>
+
+<p><a href="/cats">See available cats</a></p>
+
