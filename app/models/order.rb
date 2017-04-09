@@ -1,4 +1,5 @@
 class Order < ActiveRecord::Base
-  # figure out if several cats per order will work
+  belongs_to :cat
+  belongs_to :user
 end
 
