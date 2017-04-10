@@ -13,6 +13,7 @@ post '/users' do
   @user.password = params[:user][:password]
 
   if @user.save
+    login
     redirect "/users/#{@user.id}"
     erb :'/users/show'
   else

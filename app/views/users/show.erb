@@ -2,9 +2,9 @@
 
 <p>Welcome, <%= @user.first_name %>!</p>
 
-<ul>
+<ul id="cat-list">
 <%@user_orders.each do |order|%>
-  <p><li><%= order.cat.name %></li></p><yield><%= erb :'/cats/_return_form', locals: {order: order} %></yield>
+  <p><li><%= order.cat.name %><yield><%= erb :'/cats/_return_form', locals: {order: order} %></yield></li></p>
 <%end%>
 </ul>
 
