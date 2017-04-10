@@ -4,9 +4,25 @@ get '/cats' do
   erb :'/cats/index'
 end
 
+# get form to add new cat
+get '/cats/new' do
+  erb :'/cats/new'
+end
+
 # display specific cat
 get '/cats/:id' do
   @cat = Cat.find(params[:id])
-  @order = Order.find_by(cat_id: params[:id], user_id: current_user.id)
   erb :'/cats/show'
+end
+
+# add new cat
+post '/cats' do
+  @cat = Cat.new(params[:cat])
+
+  if @cat.save
+    redirect "/cats"
+  else
+    @errors = @user.errors.full_messages
+    erb :'/cats/new'
+  end
 end

@@ -1,12 +1,15 @@
 <h1>Welcome to rentamitten!</h1>
 <p>For all your temporary cat needs!</p>
 
+<% if current_user %>
+  <p><a href="/cats">See available cats</a></p>
+  <form action="/sessions/<%= session.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Log out">
+  </form>
+<% else %>
+  <p><a href="/users/new">Create new user</a></p>
+  <p><a href="/sessions/new">Log in</a></p>
 
-<a href="/users/new">Create new user</a><br>
-<a href="/sessions/new">Log in</a><br>
-
-<form action="/sessions" method="POST">
-<input type="hidden" name="_method" value="DELETE">
-<input type="submit" value="Log out">
-</form>
+<% end %>
 

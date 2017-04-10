@@ -26,7 +26,6 @@ get '/orders/:id' do
 # end order
 delete '/orders/:id' do
   @order = Order.find(params[:id])
-  erb :'/cats/_return_form', layout: false, locals: {order: @order}
   @order.destroy
   redirect "/users/#{current_user.id}"
 end
