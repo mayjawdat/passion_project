@@ -4,7 +4,7 @@
 
 <ul id="cat-list">
 <%@user_orders.each do |order|%>
-  <p><li><%= order.cat.name %><yield><%= erb :'/cats/_return_form', locals: {order: order} %></yield></li></p>
+  <p><li><%= order.cat.name %> <yield><%= erb :'/cats/_return_form', locals: {order: order} %></yield></li></p>
 <%end%>
 </ul>
 

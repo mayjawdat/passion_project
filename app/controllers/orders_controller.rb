@@ -26,6 +26,9 @@ get '/orders/:id' do
 # end order
 delete '/orders/:id' do
   @order = Order.find(params[:id])
-  @order.destroy
-  redirect "/users/#{current_user.id}"
+  if request.xhr?
+    @order.destroy
+  else
+    redirect "/users/#{current_user.id}"
+  end
 end
