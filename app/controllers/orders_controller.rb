@@ -7,7 +7,6 @@ end
 # create new 
 post '/orders' do
   @order = Order.new(params[:order])
-  @cat = Cat.find(params[:order][:cat_id])
 
   if @order.save
     redirect "/users/#{current_user.id}"
@@ -26,10 +25,12 @@ end
 # end order
 delete '/orders/:id' do
   @order = Order.find(params[:id])
-  @cat = Cat.find(params[:cat_id])
+  @cat = @order.cat
+  @order.destroy
+  @cat.update(order_id: nil)
 
   if request.xhr?
-    @order.destroy
+    status 200
   else
     redirect "/users/#{current_user.id}"
   end

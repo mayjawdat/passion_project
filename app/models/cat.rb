@@ -1,11 +1,9 @@
 class Cat < ActiveRecord::Base
   has_many :renters, through: :orders, source: :user
-  belongs_to :order
+  has_one :order
 
-  # def available?
-  #   if @cat[:order_id] == nil
-  #     return true
-  #   end
-  # end
+  def available?
+    self.order == nil
+  end
 
 end

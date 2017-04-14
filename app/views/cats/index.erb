@@ -2,10 +2,14 @@
 
 <ul>
   <%@cats.each do |cat|%>
-    <p><a href="/cats/<%= cat.id %>"><li><%= cat.name %></li></a><br>
-    <%= cat.breed %>, <%= cat.age %> years old<br>
-    <img src="/cat_photos/<%= cat.photo_source %>">
-    </p>
+    <% if cat.available? %>
+      
+      <p><a href="/cats/<%= cat.id %>"><li><%= cat.name %></li></a><br>
+      <%= cat.breed %>, <%= cat.age %> years old<br>
+      <img src="/cat_photos/<%= cat.photo_source %>">
+      </p>
+
+    <% end %>
   <%end%>
 </ul>
 

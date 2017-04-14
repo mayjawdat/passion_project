@@ -3,12 +3,12 @@
 <p>Welcome, <%= current_user.first_name %>!</p>
 
 <ul id="cat-list">
-<p><%= @user_orders %></p>
- <!--  <%@user_orders.each do |order|%>
-    <% order.cats.each do |cat|  %>
+
+<%@user_orders.each do |order|%>
+   
     <p><li><%= order.cat.name %> <yield><%= erb :'/cats/_return_form', locals: {order: order} %></yield></li></p>
-    <%end%>
-  <% end %> -->
+  
+  <% end %>
 </ul>
 
 <p><a href="/cats">See available cats</a></p>

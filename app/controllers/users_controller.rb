@@ -25,5 +25,6 @@ end
 # display user profile
 get '/users/:id' do
   @user_orders = current_user.orders
+  
   erb :'/users/show'
 end
