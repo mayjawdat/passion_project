@@ -1,20 +1,14 @@
-require 'faker'
-
 User.destroy_all
 Cat.destroy_all
 
-cats = []
 
-15.times do 
-  cats << Cat.create(name: Faker::Cat.name, breed: Faker::Cat.breed, age: rand(1..8))
-end
-
-people = []
-
-15.times do 
-  people << User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Internet.password(8, 10))
-end
-
-40.times do
-  Order.create(user_id: people.sample.id, cat_id: cats.sample.id)
-end
+Cat.create(name: "Chairman Meow", breed: "Birman", age: 7, photo_source: "birman.jpg")
+Cat.create(name: "Cat Benetar", breed: "Domestic Shorthair", age: 6, photo_source: "not_grumpy.jpg")
+Cat.create(name: "Hunter S. Thomcat", breed: "British Shorthair", age: 8, photo_source: "british_shorthair.jpg")
+Cat.create(name: "Olivia Mewton-John", breed: "Tabby", age: 4, photo_source: "orange.jpg")
+Cat.create(name: "Buster", breed: "Havana Brown", age: 5, photo_source: "havana_brown.jpg")
+Cat.create(name: "Doc McFluffins", breed: "Norwegian Forst Cat", age: 4, photo_source: "norwegian_forest_cat.jpg")
+Cat.create(name: "Snowball II", breed: "Tiny Panther", age: 3, photo_source: "panther.jpg")
+Cat.create(name: "Pawdrey Hepburn", breed: "Russian Blue", age: 6, photo_source: "russian_blue.jpg")
+Cat.create(name: "Princess Fancy Boots", breed: "Angora", age: 8, photo_source: "angora.jpg")
+Cat.create(name: "Catrick Swayze", breed: "Abyssinian", age: 7, photo_source: "abyssinian.jpg")

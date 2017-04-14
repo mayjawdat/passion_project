@@ -11,8 +11,8 @@ post '/sessions/' do
     login
     redirect "/users/#{@user.id}"
   else
-    @errors = @user.errors.full_messages
-    redirect '/sessions/new'
+    @errors = ["Incorrect email or password"]
+    erb :'/sessions/new'
   end
 end
 

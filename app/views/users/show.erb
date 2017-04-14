@@ -1,11 +1,13 @@
 <h1>User profile</h1>
 
-<p>Welcome, <%= @user.first_name %>!</p>
+<p>Welcome, <%= current_user.first_name %>!</p>
 
 <ul id="cat-list">
-<%@user_orders.each do |order|%>
-  <p><li><%= order.cat.name %> <yield><%= erb :'/cats/_return_form', locals: {order: order} %></yield></li></p>
-<%end%>
+  <%@user_orders.each do |order|%>
+    <% order.cats.each do |cat|  %>
+    <p><li><%= order.cat.name %> <yield><%= erb :'/cats/_return_form', locals: {order: order} %></yield></li></p>
+    <%end%>
+  <% end %>
 </ul>
 
 <p><a href="/cats">See available cats</a></p>

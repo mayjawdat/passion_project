@@ -1,5 +1,11 @@
 <h1>Sign in</h1>
 
+<% if @errors %>
+  <% @errors.each do |error| %>
+    <%= error %>
+  <% end  %>
+<% end  %>
+
 <form action="/sessions/" method="POST">
 
 <p><label>Email:</label></p>

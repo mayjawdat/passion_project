@@ -4,15 +4,15 @@ get '/cats' do
   erb :'/cats/index'
 end
 
-# get form to add new cat
-get '/cats/new' do
-  erb :'/cats/new'
-end
-
 # display specific cat
 get '/cats/:id' do
   @cat = Cat.find(params[:id])
   erb :'/cats/show'
+end
+
+# get form to add new cat
+get '/cats/new' do
+  erb :'/cats/new'
 end
 
 # add new cat

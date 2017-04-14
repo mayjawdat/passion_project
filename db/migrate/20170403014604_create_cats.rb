@@ -4,6 +4,9 @@ class CreateCats < ActiveRecord::Migration
       t.string :name, null: false
       t.integer :age
       t.string :breed
+      t.string :photo_source
+      t.boolean :available, default: true
+      t.references :order, default: nil
 
       t.timestamps
     end

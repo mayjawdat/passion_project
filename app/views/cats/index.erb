@@ -1,11 +1,12 @@
-<h1>Every cat</h1>
+<h1>All the cats!</h1>
 
 <ul>
-<%@cats.each do |cat|%>
-  <p><a href="/cats/<%= cat.id %>"><li><%= cat.name %></li></a><br>
-<%= cat.breed %>, <%= cat.age %> years old
-  </p>
-<%end%>
+  <%@cats.each do |cat|%>
+    <p><a href="/cats/<%= cat.id %>"><li><%= cat.name %></li></a><br>
+    <%= cat.breed %>, <%= cat.age %> years old<br>
+    <img src="/cat_photos/<%= cat.photo_source %>">
+    </p>
+  <%end%>
 </ul>
 
 <p><a href="/cats/new">Add new cat</a></p>

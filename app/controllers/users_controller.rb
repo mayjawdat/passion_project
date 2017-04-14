@@ -24,7 +24,6 @@ end
 
 # display user profile
 get '/users/:id' do
-  @user = User.find(params[:id])
-  @user_orders = @user.orders
+  @user_orders = current_user.orders
   erb :'/users/show'
 end
