@@ -10,7 +10,6 @@ post '/orders' do
   @cat = Cat.find(params[:order][:cat_id])
 
   if @order.save
-    @cat.available = false
     redirect "/users/#{current_user.id}"
   else
     @errors = @order.errors.full_messages
@@ -28,7 +27,6 @@ end
 delete '/orders/:id' do
   @order = Order.find(params[:id])
   @cat = Cat.find(params[:cat_id])
-  @cat.available = true
 
   if request.xhr?
     @order.destroy
