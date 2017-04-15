@@ -1,14 +1,14 @@
-<h1>Welcome to rentamitten!</h1>
-<p>For all your temporary cat needs!</p>
+<h2>Welcome to Portable Paws</h2>
+<h1>The right meow, right now</h1>
 
 <% if current_user %>
-  <p><a href="/cats">See available cats</a></p>
+  <h5><a href="/cats">See available cats</a></h5>
   <form action="/sessions/<%= session.id %>" method="POST">
     <input type="hidden" name="_method" value="DELETE">
     <input type="submit" value="Log out">
   </form>
 <% else %>
-  <p><a href="/users/new">Create new user</a></p>
-  <p><a href="/sessions/new">Log in</a></p>
+  <h5><a href="/users/new">Create new user</a></h5>
+  <h5><a href="/sessions/new">Log in</a></h5>
 <% end %>
 
