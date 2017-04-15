@@ -25,9 +25,7 @@ end
 # end order
 delete '/orders/:id' do
   @order = Order.find(params[:id])
-  @cat = @order.cat
   @order.destroy
-  @cat.update(order_id: nil)
 
   if request.xhr?
     status 200

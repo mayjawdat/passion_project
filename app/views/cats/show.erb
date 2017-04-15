@@ -1,6 +1,6 @@
-<h1>Cat profile</h1>
+<h1><%= @cat.name %></h1>
 
-<p><label>Name: </label><%= @cat.name %></p>
+<p><img src="/cat_photos/<%= @cat.photo_source %>"></p>
 <p><label>Breed: </label><%= @cat.breed %></p>
 <p><label>Age: </label><%= @cat.age %></p>
 

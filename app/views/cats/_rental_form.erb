@@ -8,6 +8,16 @@
       <input type="hidden" name="order[user_id]" value="<%= current_user.id %>">
       <input type="hidden" name="order[cat_id]" value="<%= @cat.id %>">
       <input type="submit" value="Rent this cat">
+        <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_hEQKyzlmCn5JTdeVqHq72xof"
+    data-amount="999"
+    data-name="Demo Site"
+    data-description="Widget"
+    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+    data-locale="auto">
+  </script>
+
     </form>
   <% end %>
 <% else %>

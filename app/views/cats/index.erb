@@ -1,16 +1,23 @@
 <h1>All the cats!</h1>
 
-<ul>
+  <div class="carousel">
   <%@cats.each do |cat|%>
     <% if cat.available? %>
       
-      <p><a href="/cats/<%= cat.id %>"><li><%= cat.name %></li></a><br>
+    <a class="carousel-item" href="/cats/<%= cat.id %>">
+    <img src="/cat_photos/<%= cat.photo_source %>"></a>
+ 
+      <p><%= cat.name %></li></a><br>
       <%= cat.breed %>, <%= cat.age %> years old<br>
       <img src="/cat_photos/<%= cat.photo_source %>">
       </p>
 
     <% end %>
   <%end%>
-</ul>
+  </div>
 
-<p><a href="/cats/new">Add new cat</a></p>
+
+
+
+
+<!-- <p><a href="/cats/new">Add new cat</a></p> -->
