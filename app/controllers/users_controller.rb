@@ -10,20 +10,18 @@ end
 # create new user
 post '/users' do
   @user = User.new(params[:user])
-  @user.password = params[:user][:hashed_password]
 
-  if @user.save
-    redirect '/users/#{@user.id}'
-    erb :'/users/show'
-  else
-    redirect '/users/new'
-    erb :'/users/new'
-  end
+   if @user.save
+     login
+     redirect "/users/#{@user.id}"
+   else
+     erb :'/users/new'
+   end
 end
 
 # display user profile
 get '/users/:id' do
-  @user = User.find(params[:id])
-  @orders = Order.find_by(params[:user_id])
+  @user_orders = current_user.orders
+  
   erb :'/users/show'
 end

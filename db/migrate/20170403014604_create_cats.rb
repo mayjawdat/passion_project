@@ -4,6 +4,7 @@ class CreateCats < ActiveRecord::Migration
       t.string :name, null: false
       t.integer :age
       t.string :breed
+      t.string :photo_source
 
       t.timestamps
     end

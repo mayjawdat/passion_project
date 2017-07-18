@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   include BCrypt
 
   has_many :orders
+  has_many :cats, through: :orders
 
   validates :email, :hashed_password, presence: true
   validates :email, uniqueness: true

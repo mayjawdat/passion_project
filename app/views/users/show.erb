@@ -1,4 +1,13 @@
-User show page
+<h3>Welcome, <%= current_user.first_name %>!</h3>
 
-- name
-- order history
+<% if current_user.orders %>
+  <h5>Your cats</h5>
+<%@user_orders.each do |order|%>
+  <img src="/cat_photos/<%= order.cat.photo_source %>">
+  <p><%= order.cat.name %> <yield><%= erb :'/cats/_return_form', locals: {order: order} %></yield></p>
+  
+  <% end %>
+<% end %>
+
+
+<p><a href="/cats">See available cats</a></p>

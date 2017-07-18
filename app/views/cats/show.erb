@@ -1,1 +1,12 @@
-Cat profile
+<h1><%= @cat.name %></h1>
+
+<p><img src="/cat_photos/<%= @cat.photo_source %>"></p>
+<p><label>Breed: </label><%= @cat.breed %></p>
+<p><label>Age: </label><%= @cat.age %></p>
+
+  <yield>
+  <%= erb :'/cats/_rental_form' %>
+  </yield>
+
+<p><a href="/cats">See available cats</a></p>
+

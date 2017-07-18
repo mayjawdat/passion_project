@@ -1,1 +1,26 @@
-Create new cat
+<h1>Add new cat</h1>
+
+<% if @errors %>
+  <% @errors.each do |error| %>
+  <%= error %>
+  <% end  %>
+<% end  %>
+<br>
+<br>
+
+<form action="/cats" method="POST">
+
+<label>Name:</label>
+<input type="text" name="cat[name]"><br>
+
+<label>Breed:</label>
+<input type="text" name="cat[breed]"><br>
+
+<label>Age:</label>
+<input type="text" name="cat[age]"><br>
+
+<br><br>
+<input type="submit" name="Submit">
+
+</form>
+

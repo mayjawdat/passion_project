@@ -1,1 +1,22 @@
-List of all the cats
+<h1>All the cats!</h1>
+
+  <div class="carousel">
+  <%@cats.each do |cat|%>
+    <% if cat.available? %>
+      
+    <a class="carousel-item" href="/cats/<%= cat.id %>">
+    <img src="/cat_photos/<%= cat.photo_source %>"></a>
+    <br>
+      <!-- <a class="materialbox-caption" value="<%= cat.name %> <%= cat.breed %>, <%= cat.age %> years old<br>"></a> -->
+      
+      
+
+    <% end %>
+  <%end%>
+  </div>
+
+
+
+
+
+<!-- <p><a href="/cats/new">Add new cat</a></p> -->
